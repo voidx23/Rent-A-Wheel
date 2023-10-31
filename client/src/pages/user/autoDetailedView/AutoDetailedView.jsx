@@ -48,8 +48,8 @@ function AutoDetailedView() {
                         <p className=''>{carData[0].name}</p>
                     </div>
                     <div>
-                        <div className='mt-[50px] flex justify-between rounded-lg'>
-                            <div className='w-[1000px] bg-[#ffffff]  flex justify-center rounded-lg'>
+                        <div className='mt-[50px]  flex justify-between rounded-lg'>
+                            <div className='w-[1000px] bg-white  flex justify-center rounded-lg p-5'>
                                 <img className='rounded-lg w-[1000px] h-[550px]' src={carData[0].image} alt="" />
                             </div>
                             <div className='bg-[#ffffff] rounded-lg h-[500px] w-[500px]'>

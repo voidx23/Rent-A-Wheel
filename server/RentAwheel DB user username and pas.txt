@@ -1,3 +1,0 @@
-RentAwheel DB user username and password
-username: nihalmb23
-password: 7EWgUPndrTJ4lmfC

@@ -18,9 +18,6 @@ function AutoListingPage() {
   const [isCollapse1Open, setIsCollapse1Open] = useState(false);
   const [isCollapse2Open, setIsCollapse2Open] = useState(false);
   const [isCollapse3Open, setIsCollapse3Open] = useState(false);
-  // const [selectedSeating, setSelectedSeating] = useState([]);
-  // const [selectedTransmission, setSelectedTransmission] = useState([]);
-  // const [selectedFuel, setSelectedFuel] = useState([]);
   const [filters, setFilters] = useState({
     seating: [],
     transmission: [],
@@ -33,11 +30,12 @@ function AutoListingPage() {
   const filteredData = data.filter((car) => {
     const seatingArray = filters.seating;
     const transmissionArray = filters.transmission;
-    // const fuelArray = filters.fuel;
+    const isNameMatched = car.name.toLowerCase().includes(searchInput.toLowerCase());
     const seating = Object.values(seatingArray);
     const transmission = Object.values(transmissionArray);
 
     if (
+      isNameMatched &&
       (Object.keys(seatingArray).length === 0 || seating.includes(car.seating)) &&
       (Object.keys(transmissionArray).length === 0 || transmission.includes(car.transmission))
       // (Object.keys(fuelArray).length === 0 || fuelArray.includes(car.fuel))
@@ -98,7 +96,7 @@ function AutoListingPage() {
             <div className="fliter h-[500px] w-[400px] rounded-xl bg-white p-8 ">
               <p className='font-bold text-2xl mb-10'>What are you looking for?</p>
               <div className="flex items-center border border-gray-300 rounded-md p-2">
-                <input type="text" className="flex-grow border-none outline-none p-1" placeholder="Search..." />
+                <input type="text" value={searchInput} onChange={(e) => setSearchInput(e.target.value)} className="flex-grow border-none outline-none p-1" placeholder="Search..." />
                 <button className="bg-transparent border-none cursor-pointer ml-2">
                   <FontAwesomeIcon icon={faSearch} className="text-gray-500" />
                 </button>
